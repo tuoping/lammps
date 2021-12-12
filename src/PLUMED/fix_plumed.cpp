@@ -35,6 +35,8 @@
 
 #include <cmath>
 #include <cstring>
+#include <iostream>
+#include <assert.h>
 
 #include "plumed/wrapper/Plumed.h"
 
@@ -461,6 +463,33 @@ void FixPlumed::post_force(int /* vflag */)
   }
   // do the real calculation:
   p->cmd("performCalc");
+  // p->cmd("performCalcNoUpdate");
+
+  // p->cmd("TurnOnDerivative", "LOCAL_Q6");
+  // unsigned nquantities[1]={};
+  // p->cmd("getNumberOfQuantities", nquantities);
+  // unsigned nderivatives[1]={};
+  // p->cmd("getNumberOfDerivatives", nderivatives);
+  
+  // const double* MCV=NULL;
+  // p->cmd(("getMultiColvars "+std::to_string(0)).c_str(), &MCV);
+  // std::cout<<"MCV of Atom 0"<<std::endl;
+  // for(int i=0; i<*nquantities; ++i){
+  //   std::cout<<MCV[i]<<"  ";
+  // }
+  // std::cout<<std::endl;
+  /*
+  std::cout<<"Derivative of MCV of Atom 0"<<std::endl;
+  // for(int i=0; i<*nquantities; ++i){
+    const double* derivMCV=NULL;
+    p->cmd("getDerivativeOfMCV 0 0", &derivMCV);
+    std::cout<<"Component "<<0<<"=\n";
+    for(int j=0; j<*nderivatives; ++j) std::cout<<derivMCV[j]<<"  ";
+  // }
+  std::cout<<std::endl;
+  */
+  // p->cmd("Update");
+  // p->cmd("finishDataGrab");
 
   if (plumedStopCondition) timer->force_timeout();
 

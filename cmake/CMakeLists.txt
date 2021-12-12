@@ -65,6 +65,7 @@ get_lammps_version(${LAMMPS_SOURCE_DIR}/version.h PROJECT_VERSION)
 
 include(PreventInSourceBuilds)
 
+
 if(NOT CMAKE_BUILD_TYPE AND NOT CMAKE_CXX_FLAGS)
   set(CMAKE_BUILD_TYPE RelWithDebInfo CACHE STRING "Choose the type of build, options are: None Debug Release RelWithDebInfo MinSizeRel." FORCE)
 endif(NOT CMAKE_BUILD_TYPE AND NOT CMAKE_CXX_FLAGS)

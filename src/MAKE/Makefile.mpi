@@ -6,13 +6,15 @@ SHELL = /bin/sh
 # compiler/linker settings
 # specify flags and libraries needed for your compiler
 
-CC =		mpicxx
+CC =		mpiicpc
 CCFLAGS =	-g -O3 -std=c++11
+# CCFLAGS =	-g -O0 -std=c++11
 SHFLAGS =	-fPIC
 DEPFLAGS =	-M
 
-LINK =		mpicxx
+LINK =		mpiicpc
 LINKFLAGS =	-g -O3 -std=c++11
+#LINKFLAGS =	-g -O0 -std=c++11
 LIB =
 SIZE =		size
 
@@ -39,7 +41,7 @@ LMP_INC =	-DLAMMPS_GZIP -DLAMMPS_MEMALIGN=64  # -DLAMMPS_CXX98
 # PATH = path for MPI library
 # LIB = name of MPI library
 
-MPI_INC =       -DMPICH_SKIP_MPICXX -DOMPI_SKIP_MPICXX=1
+MPI_INC = 
 MPI_PATH =
 MPI_LIB =
 
